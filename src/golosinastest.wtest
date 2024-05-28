@@ -1,0 +1,81 @@
+import golosinas.*
+
+test "BombonDuro hereda correctamente de la clase Bombon" {
+
+	const bom = new BombonDuro()
+	assert.equals(5, bom.precio())
+	assert.equals(15, bom.peso())
+	bom.mordisco()
+	assert.equals(14, bom.peso())
+	assert.equals(frutilla, bom.sabor())
+	assert.that(bom.libreGluten())
+	assert.equals(3, bom.gradoDeDureza())
+
+}
+
+test "CarameloDeSabores hereda correctamente de la clase Caramelo" {
+	
+	const car = new CarameloDeSabores(sabor = naranja)
+	assert.equals(12, car.precio())
+	assert.equals(5, car.peso())
+	car.mordisco()
+	assert.equals(4, car.peso())
+	assert.equals(naranja, car.sabor())
+	assert.that(car.libreGluten())
+}
+
+test "CarameloRelleno hereda correctamente de la clase Caramelo" {
+	
+	const car = new CarameloRelleno()
+	assert.equals(13, car.precio())
+	assert.equals(5, car.peso())
+	assert.equals(frutilla, car.sabor())
+	car.mordisco()
+	assert.equals(4, car.peso())
+	assert.equals(chocolate, car.sabor())
+	assert.that(car.libreGluten())
+}
+
+test "ObleaCrujiente hereda correctamente de la clase Oblea" {
+
+	const obl = new ObleaCrujiente()
+	assert.equals(5, obl.precio())
+	assert.equals(250, obl.peso())
+	obl.mordisco()
+	assert.equals(122, obl.peso())
+	obl.mordisco()
+	assert.equals(58, obl.peso())
+	obl.mordisco()
+	assert.equals(40.5, obl.peso())
+	assert.notThat(obl.estaDebil())
+	obl.mordisco()
+	assert.equals(30.375, obl.peso())
+	assert.that(obl.estaDebil())
+	assert.equals(vainilla, obl.sabor())
+	assert.notThat(obl.libreGluten())
+
+}
+
+test "ChocolatinVIP hereda correctamente de la clase Chocolatin" {
+
+	const cho = new ChocolatinVIP(pesoInicial = 100)
+	assert.equals(50, cho.precio())
+	assert.equals(100 * 1.1, cho.peso())
+	cho.mordisco()
+	assert.equals(98 * 1.1, cho.peso())
+	assert.equals(chocolate, cho.sabor())
+	assert.notThat(cho.libreGluten())
+
+}
+
+test "ChocolatinPremium hereda correctamente de la clase ChocolatinVIP" {
+
+	const cho = new ChocolatinPremium(pesoInicial = 100)
+	assert.equals(50, cho.precio())
+	assert.equals(100 * (1.1 / 2), cho.peso())
+	cho.mordisco()
+	assert.equals(98 * (1.1 / 2), cho.peso())
+	assert.equals(chocolate, cho.sabor())
+	assert.notThat(cho.libreGluten())
+
+}

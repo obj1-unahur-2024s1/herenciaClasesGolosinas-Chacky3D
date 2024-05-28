@@ -7,6 +7,8 @@ object mariano {
 	
 	method desechar (_golosina) { golosinas.remove(_golosina) }
 	
+	method comprarVarias(_golosinas) { golosinas.addAll(_golosinas) }
+	
 	method golosinas() { return golosinas }
 	method primerGolosina() { return golosinas.first() }
 	method ultimaGolosina() { return golosinas.last() }
@@ -62,6 +64,12 @@ object mariano {
 	
 	method tieneGolosinaDeSabor(_sabor) {
 		return golosinas.any({_golosina => _golosina.sabor() == _sabor})
+	}
+	
+	method baniar(unaGolosina) {
+		if(!golosinas.contains(unaGolosina) and unaGolosina.className() != "golosinas.GolosinaBaniada") {
+			golosinas.add(new GolosinaBaniada(golosinaInterior = unaGolosina))
+		}
 	}
 }
 
